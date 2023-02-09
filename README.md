@@ -16,17 +16,14 @@
 2. Navegue até o diretório `processing`
 
 3. Copie a aplicação para o servidor usando o comando `scp`, exemplo:
+
 <code>scp -i ~/Downloads/pair-bootcamp.pem job-spark-app-emr-redshift.py hadoop@ec2-54-90-3-194.compute-1.amazonaws.com:/home/hadoop/ </code>
 
 4. Conecte no servidor master usando `ssh`, exemplo:
-<code>
-ssh -i ~/Downloads/pair-bootcamp.pem hadoop@ec2-54-90-3-194.compute-1.amazonaws.com
-</code>
+
+<code> ssh -i ~/Downloads/pair-bootcamp.pem hadoop@ec2-54-90-3-194.compute-1.amazonaws.com </code>
 
 *Obs*: Antes de executar a aplicação verifique se o redshift está iniciado, caso não esteja edite a aplicação alterando a variável `flag_write_redshift` para false.
 
 5. Execute o comando spark-submit, exemplo:
-
-<code>
-spark-submit --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"  --jars /usr/share/aws/redshift/jdbc/RedshiftJDBC.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-redshift.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-avro.jar,/usr/share/aws/redshift/spark-redshift/lib/minimal-json.jar job-spark-app-emr-redshift.py
-</code>
+<code>spark-submit --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"  --jars /usr/share/aws/redshift/jdbc/RedshiftJDBC.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-redshift.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-avro.jar,/usr/share/aws/redshift/spark-redshift/lib/minimal-json.jar job-spark-app-emr-redshift.py</code>
