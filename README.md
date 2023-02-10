@@ -27,3 +27,32 @@
 
 5. Execute o comando spark-submit, exemplo:
 <code>spark-submit --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"  --jars /usr/share/aws/redshift/jdbc/RedshiftJDBC.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-redshift.jar,/usr/share/aws/redshift/spark-redshift/lib/spark-avro.jar,/usr/share/aws/redshift/spark-redshift/lib/minimal-json.jar job-spark-app-emr-redshift.py</code>
+
+
+### Para provisionar recursos com Terraform:
+1. Navegue até o diretório `Terraform`
+
+2. Instale o aplicativo `terraform`
+
+3. Instale o aplicativo `aws-cli`. Veja esse link: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+4. Autentique na AWS com o comando:
+
+<code>aws configure</code>
+
+5. Antes de provisionar os recursos crie o backend para usar como *backend* e a tabela no Dynamodb.
+
+6. Edite os arquivos *terraform.tfvars* e *variables.tf* com as informações da sua infraestrutura.
+
+7. Provisione os recursos com os comandos:
+
+Provisione os recursos com o comando:
+
+<code>terraform init></code>
+
+<code>terraform plan></code>
+
+<code>terraform apply></code>
+
+
+3. Copie a aplicação para o servidor usando o comando `scp`, exemplo:
