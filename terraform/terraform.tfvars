@@ -1,0 +1,14 @@
+project_name = "bootcampde"
+environment = "prod"
+bucket_names = ["raw","processed","curated","scripts"]
+db_username = "postgres"
+db_password = "Stack2022!"
+key_pair_name = "pair-bootcamp"
+db_port = 3306
+db_server_name = "mysql-stagingdb.chlqfmqqbzxx.us-east-1.rds.amazonaws.com"
+vpc_group_name = "vpc-group-name-dms"
+vpc_group_description = "Allow access to environment"
+vpc_id = ["vpc-0761bfe5fcd29ef7b"]
+subnet_id = ["subnet-0338eec367c32a38d","subnet-033f327fa63c99d4f"]
+security_group_id_list = ["sg-0b41a6d6dda8ae746"]
+athena_database_name = "default"
